@@ -18,6 +18,16 @@
       text-align: center;
     }
 
+    /* Timer box with border and shadow */
+    .timer-box {
+      border: 3px solid #1E90FF;
+      border-radius: 15px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.1); /* Slight transparent background for box */
+      box-shadow: 0px 0px 20px rgba(0, 191, 255, 0.8);
+      display: inline-block;
+    }
+
     /* Fullscreen timer */
     .timer {
       font-size: 10vw; /* Large responsive timer size */
@@ -54,17 +64,17 @@
 </head>
 <body>
 
-  <div>
+  <div class="timer-box">
     <div class="timer" id="timer">10.00</div>
     <div class="instructions">Press SPACEBAR to Start/Stop</div>
-
-    <!-- Optional: Hidden buttons for debugging purposes -->
-    <button id="startBtn" onclick="startTimer()" style="display:none;">Start Timer</button>
-    <button id="stopBtn" onclick="stopTimer()" style="display:none;">Stop Timer</button>
-
-    <!-- Audio element with random buzzer sound for testing -->
-    <audio id="buzzer" src="https://freesound.org/people/BloodPixelHero/sounds/572624/" preload="auto"></audio>
   </div>
+
+  <!-- Optional: Hidden buttons for debugging purposes -->
+  <button id="startBtn" onclick="startTimer()" style="display:none;">Start Timer</button>
+  <button id="stopBtn" onclick="stopTimer()" style="display:none;">Stop Timer</button>
+
+  <!-- Audio element with random buzzer sound for testing -->
+  <audio id="buzzer" src="https://freesound.org/people/BloodPixelHero/sounds/572624/" preload="auto"></audio>
 
   <script src="script.js"></script>
 </body>
