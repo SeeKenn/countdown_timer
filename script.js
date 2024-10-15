@@ -13,6 +13,9 @@ function startTimer() {
     isRunning = true;
     countdownStartTime = performance.now() - elapsed * 1000; // Adjust for any previous elapsed time
     interval = requestAnimationFrame(updateTimer);
+    
+    // Reset the timer color to white when starting
+    timerElement.style.color = "#fff";
   }
 }
 
@@ -45,13 +48,13 @@ function stopTimer() {
     // Check if the user stopped at exactly 2.50 seconds
     if (finalTime.toFixed(2) === "2.50") {
       buzzer.play(); // Play the buzzer sound
-      alert("Congratulations! You hit exactly 2.50 seconds!");
+      timerElement.style.color = "green"; // Change color to green for success
     } else {
-      alert(`You stopped at ${finalTime.toFixed(2)} seconds. Try again!`);
+      timerElement.style.color = "red"; // Change color to red for failure
     }
 
-    // Reset the timer after stopping
-    resetTimer();
+    // Reset the timer after a short delay
+    setTimeout(resetTimer, 1000); // Delay to allow the user to see the color change
   }
 }
 
@@ -59,6 +62,7 @@ function stopTimer() {
 function resetTimer() {
   cancelAnimationFrame(interval);
   timerElement.innerHTML = "10.00";
+  timerElement.style.color = "#fff"; // Reset the color to white
   isRunning = false;
   elapsed = 0; // Reset elapsed time
 }
