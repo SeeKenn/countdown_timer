@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gamified Countdown Timer</title>
+  <style>
+    /* Dark background and full-screen setup */
+    body {
+      background-color: #121212;
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+
+    /* Fullscreen timer */
+    .timer {
+      font-size: 10vw; /* Large responsive timer size */
+      letter-spacing: 0.1em;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.5);
+      margin-bottom: 20px;
+    }
+
+    /* Start/Stop hint */
+    .instructions {
+      font-size: 2vw;
+      margin-top: 20px;
+      color: #aaa;
+    }
+
+    /* Buttons (Optional) */
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin: 10px;
+      background-color: #1E90FF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #007BFF;
+    }
+  </style>
+  <!-- Google font for a gaming look -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div>
+    <div class="timer" id="timer">10.00</div>
+    <div class="instructions">Press SPACEBAR to Start/Stop</div>
+
+    <!-- Optional: Hidden buttons for debugging purposes -->
+    <button id="startBtn" onclick="startTimer()" style="display:none;">Start Timer</button>
+    <button id="stopBtn" onclick="stopTimer()" style="display:none;">Stop Timer</button>
+
+    <!-- Audio element with random buzzer sound for testing -->
+    <audio id="buzzer" src="https://freesound.org/people/BloodPixelHero/sounds/572624/" preload="auto"></audio>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
