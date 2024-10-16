@@ -1,34 +1,32 @@
 let timerElement = document.getElementById('timer');
 let buzzer = document.getElementById('buzzer');
 
-let startTime = 10.00; // Start time in seconds with 2 decimal places
+buzzer.src = './500649-USER_INTERFACE_BELL_-Bright_Ringing_Win_Payout_or_Trigger_Alarm_007856_.wav';
+
+let startTime = 10.00; 
 let interval;
 let isRunning = false;
 let countdownStartTime;
 let elapsed = 0;
 
-// Function to start the timer
 function startTimer() {
   if (!isRunning) {
     isRunning = true;
-    countdownStartTime = performance.now() - elapsed * 1000; // Adjust for any previous elapsed time
+    countdownStartTime = performance.now() - elapsed * 1000; 
     interval = requestAnimationFrame(updateTimer);
     
-    // Reset the timer color to white when starting
     timerElement.style.color = "#fff";
   }
 }
 
-// Function to update the timer
 function updateTimer(currentTime) {
   elapsed = (currentTime - countdownStartTime) / 1000;
-  let remainingTime = (startTime - elapsed).toFixed(2); // Keep two decimal places
+  let remainingTime = (startTime - elapsed).toFixed(2); 
 
   if (remainingTime <= 0) {
-    timerElement.innerHTML = "0.00";
     isRunning = false;
     cancelAnimationFrame(interval);
-    resetTimer();  // Automatically reset the timer if it reaches 0
+    resetTimer(); 
     return;
   }
 
@@ -38,39 +36,33 @@ function updateTimer(currentTime) {
   }
 }
 
-// Function to stop the timer
 function stopTimer() {
   if (isRunning) {
     cancelAnimationFrame(interval);
     isRunning = false;
     let finalTime = parseFloat(timerElement.innerHTML);
 
-    // Check if the user stopped at exactly 2.50 seconds
-    if (finalTime.toFixed(2) === "2.50") {
-      buzzer.play(); // Play the buzzer sound
-      timerElement.style.color = "green"; // Change color to green for success
+    if (finalTime.toFixed(2) == "2.50"  ) {
+      buzzer.play(); 
+      timerElement.style.color = "green"; 
     } else {
-      timerElement.style.color = "red"; // Change color to red for failure
+      timerElement.style.color = "red"; 
     }
 
-    // Reset the timer after a short delay
-    setTimeout(resetTimer, 1000); // Delay to allow the user to see the color change
+    setTimeout(resetTimer, 1000); 
   }
 }
 
-// Function to reset the timer
 function resetTimer() {
   cancelAnimationFrame(interval);
   timerElement.innerHTML = "10.00";
-  timerElement.style.color = "#fff"; // Reset the color to white
+  timerElement.style.color = "#fff"; 
   isRunning = false;
-  elapsed = 0; // Reset elapsed time
+  elapsed = 0; 
 }
 
-// Function to handle Spacebar key press
 function handleKeyPress(event) {
   if (event.code === "Space") {
-    // Toggle between start and stop when spacebar is pressed
     if (isRunning) {
       stopTimer();
     } else {
@@ -79,10 +71,8 @@ function handleKeyPress(event) {
   }
 }
 
-// Event listener for keydown event to listen for Spacebar
 document.addEventListener('keydown', handleKeyPress);
 
-// Start the timer when the page loads
 window.onload = function() {
-  resetTimer(); // Initialize with reset state
+  resetTimer(); 
 };

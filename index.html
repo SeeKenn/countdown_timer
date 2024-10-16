@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gamified Countdown Timer</title>
   <style>
-    /* Dark background and full-screen setup */
     body {
       background-color: #121212;
       color: #fff;
@@ -18,7 +17,6 @@
       text-align: center;
     }
 
-    /* Timer box with border and shadow */
     .timer-box {
       border: 3px solid #1E90FF;
       border-radius: 15px;
@@ -28,7 +26,6 @@
       display: inline-block;
     }
 
-    /* Fullscreen timer */
     .timer {
       font-size: 10vw; /* Large responsive timer size */
       letter-spacing: 0.1em;
@@ -36,14 +33,12 @@
       margin-bottom: 20px;
     }
 
-    /* Start/Stop hint */
     .instructions {
       font-size: 2vw;
       margin-top: 20px;
       color: #aaa;
     }
 
-    /* Buttons (Optional) */
     button {
       padding: 10px 20px;
       font-size: 18px;
@@ -59,7 +54,6 @@
       background-color: #007BFF;
     }
   </style>
-  <!-- Google font for a gaming look -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -69,12 +63,10 @@
     <div class="instructions">Press SPACEBAR to Start/Stop</div>
   </div>
 
-  <!-- Optional: Hidden buttons for debugging purposes -->
   <button id="startBtn" onclick="startTimer()" style="display:none;">Start Timer</button>
   <button id="stopBtn" onclick="stopTimer()" style="display:none;">Stop Timer</button>
 
-  <!-- Audio element with random buzzer sound for testing -->
-  <audio id="buzzer" src="https://freesound.org/people/BloodPixelHero/sounds/572624/" preload="auto"></audio>
+  <audio id="buzzer" src="./500649-USER_INTERFACE_BELL_-Bright_Ringing_Win_Payout_or_Trigger_Alarm_007856_.wav" preload="auto"></audio>
 
   <script src="script.js"></script>
 </body>
