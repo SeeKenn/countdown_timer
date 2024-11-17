@@ -59,11 +59,7 @@ function stopTimer() {
 function endGame(win) {
   gameOver = true;
   isRunning = false;
-  if (win) {
-    timerElement.innerHTML = "YOU WIN!";
-  } else {
-    timerElement.innerHTML = "GAME OVER";
-  }
+
   document.addEventListener('keydown', resetGameListener); // Enable reset on spacebar
 }
 
