@@ -17,6 +17,14 @@
       text-align: center;
     }
 
+    @font-face {
+    
+    font-family: 'Urbanist';
+    src: url('./Urbanist-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
     .timer-box {
       border: 3px solid #1E90FF;
       border-radius: 15px;
@@ -31,6 +39,8 @@
       letter-spacing: 0.1em;
       text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.5);
       margin-bottom: 20px;
+      font-family: 'Urbanist', sans-serif;
+
     }
 
     .instructions {
@@ -60,7 +70,6 @@
 
   <div class="timer-box">
     <div class="timer" id="timer">10.00</div>
-    <div class="instructions">Press SPACEBAR to Start/Stop</div>
   </div>
 
   <button id="startBtn" onclick="startTimer()" style="display:none;">Start Timer</button>
