@@ -42,7 +42,7 @@ function stopTimer() {
     isRunning = false;
     let finalTime = parseFloat(timerElement.innerHTML);
 
-    if (finalTime.toFixed(2) = "2.50") {
+    if (finalTime.toFixed(2) == "2.50") {
       buzzer.play(); // Play buzzer sound
       timerElement.style.color = "green"; // Change timer color to green
 
@@ -59,7 +59,9 @@ function stopTimer() {
 function endGame(win) {
   gameOver = true;
   isRunning = false;
-  if (!win) {
+  if (win) {
+    timerElement.innerHTML = "YOU WIN!";
+  } else {
     timerElement.innerHTML = "GAME OVER";
   }
   document.addEventListener('keydown', resetGameListener); // Enable reset on spacebar
@@ -82,6 +84,12 @@ function resetGameListener(event) {
 }
 
 function handleKeyPress(event) {
+  if (event.code === "KeyD") { // Press "D" for Debug success
+    timerElement.innerHTML = "2.50";
+    stopTimer();
+    return;
+  }
+  
   if (event.code === "Space") {
     if (gameOver) {
       return; // Do nothing if the game is over (reset listener handles this)
