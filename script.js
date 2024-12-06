@@ -1,7 +1,5 @@
 let timerElement = document.getElementById('timer');
-let buzzer = document.getElementById('buzzer');
 
-buzzer.src = './500649-USER_INTERFACE_BELL_-Bright_Ringing_Win_Payout_or_Trigger_Alarm_007856_.wav';
 
 let startTime = 10.00; 
 let interval;
@@ -9,13 +7,26 @@ let isRunning = false;
 let gameOver = false; // Tracks if the game has ended
 let countdownStartTime;
 let elapsed = 0;
+//let backgroundMusic = document.getElementById('backgroundMusic');
 
+
+function playBackgroundMusic() {
+  backgroundMusic.volume = 0.5; // Adjust volume as needed
+  backgroundMusic.play();
+}
+
+    playBackgroundMusic(); // Start music
+
+
+    
 function startTimer() {
   if (!isRunning && !gameOver) {
     isRunning = true;
     countdownStartTime = performance.now() - elapsed * 1000; 
     interval = requestAnimationFrame(updateTimer);
     timerElement.style.color = "#fff";
+    playBackgroundMusic(); // Start music
+
   }
 }
 
@@ -43,8 +54,10 @@ function stopTimer() {
     let finalTime = parseFloat(timerElement.innerHTML);
 
     if (finalTime.toFixed(2) == "2.50") {
-      buzzer.play(); // Play buzzer sound
       timerElement.style.color = "green"; // Change timer color to green
+      let winSound = document.getElementById('winSound');
+      winSound.play();
+
 
       // Trigger confetti
       launchConfetti();
@@ -106,11 +119,12 @@ function launchConfetti() {
 
   (function frame() {
     confetti({
-      particleCount: 5, // Particles per frame
+      particleCount: 10, // Particles per frame
       angle: Math.random() * 360,
-      spread: 60,
-      startVelocity: 40,
-      origin: { x: Math.random(), y: Math.random() - 0.2 }
+      spread: 70,
+      startVelocity: 50,
+      origin: { x: Math.random(), y: Math.random() - 0.2 },
+      scalar: 3.5
     });
 
     if (Date.now() < end) {
